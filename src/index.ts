@@ -16,6 +16,7 @@ export {
 } from './error.js';
 export { Chat, Completions, Audio, Images, Embeddings, Models, Balance } from './resources/index.js';
 export type {
+  ContentPart,
   ChatCompletionMessageParam,
   ChatCompletionCreateParams,
   ChatCompletion,
@@ -25,6 +26,8 @@ export type {
   CompletionUsage,
   ToolCall,
   Tool,
+  JsonSchema,
+  ResponseFormat,
   AudioGenerationParams,
   ImageGenerationParams,
   ImageGenerationResponse,
@@ -37,7 +40,7 @@ export type {
   ModelListParams,
   BalanceResponse,
   RequestOptions,
-} from './types';
+} from './types.js';
 
 import { Lunos as _Lunos } from './client.js';
 export default _Lunos;

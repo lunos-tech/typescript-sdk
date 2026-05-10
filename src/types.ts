@@ -1,8 +1,12 @@
 // ─── Chat ────────────────────────────────────────────────────────────────────
 
+export type ContentPart =
+  | { type: 'text'; text: string }
+  | { type: 'image_url'; image_url: { url: string; detail?: 'auto' | 'low' | 'high' } };
+
 export interface ChatCompletionMessageParam {
   role: 'system' | 'user' | 'assistant' | 'tool';
-  content: string | null;
+  content: string | ContentPart[] | null;
   name?: string;
   tool_calls?: ToolCall[];
   tool_call_id?: string;
@@ -14,10 +18,20 @@ export interface ToolCall {
   function: { name: string; arguments: string };
 }
 
-export interface Tool {
-  type: 'function';
-  function: { name: string; description?: string; parameters?: Record<string, unknown> };
+export type Tool =
+  | { type: 'function'; function: { name: string; description?: string; parameters?: Record<string, unknown> } }
+  | { type: 'web_search' };
+
+export interface JsonSchema {
+  name: string;
+  strict?: boolean;
+  schema: Record<string, unknown>;
 }
+
+export type ResponseFormat =
+  | { type: 'text' }
+  | { type: 'json_object' }
+  | { type: 'json_schema'; json_schema: JsonSchema };
 
 export interface ChatCompletionCreateParams {
   model: string;
@@ -31,7 +45,9 @@ export interface ChatCompletionCreateParams {
   presence_penalty?: number;
   tools?: Tool[];
   tool_choice?: 'none' | 'auto' | { type: 'function'; function: { name: string } };
-  response_format?: { type: 'text' | 'json_object' };
+  response_format?: ResponseFormat;
+  /** Opt-in observability — stores request/output details for debugging */
+  observability?: boolean;
   user?: string;
 }
 

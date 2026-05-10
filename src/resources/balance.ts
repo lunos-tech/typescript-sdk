@@ -1,5 +1,5 @@
-import type { Lunos } from '../client';
-import type { BalanceResponse, RequestOptions } from '../types';
+import type { Lunos } from '../client.js';
+import type { BalanceResponse, RequestOptions } from '../types.js';
 
 export class Balance {
   private client: Lunos;

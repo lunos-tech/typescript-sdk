@@ -1,5 +1,5 @@
-export { Lunos, type ClientOptions } from './client';
-export { Stream } from './streaming';
+export { Lunos, type ClientOptions } from './client.js';
+export { Stream } from './streaming.js';
 export {
   LunosError,
   APIError,
@@ -13,8 +13,8 @@ export {
   InternalServerError,
   APIConnectionError,
   APIConnectionTimeoutError,
-} from './error';
-export { Chat, Completions, Audio, Images, Embeddings, Models, Balance } from './resources';
+} from './error.js';
+export { Chat, Completions, Audio, Images, Embeddings, Models, Balance } from './resources/index.js';
 export type {
   ChatCompletionMessageParam,
   ChatCompletionCreateParams,
@@ -39,5 +39,5 @@ export type {
   RequestOptions,
 } from './types';
 
-import { Lunos as _Lunos } from './client';
+import { Lunos as _Lunos } from './client.js';
 export default _Lunos;

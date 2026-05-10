@@ -1,5 +1,5 @@
-import type { Lunos } from '../client';
-import type { AudioGenerationParams, RequestOptions } from '../types';
+import type { Lunos } from '../client.js';
+import type { AudioGenerationParams, RequestOptions } from '../types.js';
 
 export class Audio {
   private client: Lunos;

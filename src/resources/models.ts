@@ -1,5 +1,5 @@
-import type { Lunos } from '../client';
-import type { ModelListResponse, ModelListParams, RequestOptions } from '../types';
+import type { Lunos } from '../client.js';
+import type { ModelListResponse, ModelListParams, RequestOptions } from '../types.js';
 
 export class Models {
   private client: Lunos;

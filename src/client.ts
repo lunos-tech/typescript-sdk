@@ -1,12 +1,12 @@
-import { APIError, APIConnectionError, APIConnectionTimeoutError } from './error';
-import { Stream } from './streaming';
-import { RequestOptions } from './types';
-import { Chat } from './resources/chat';
-import { Audio } from './resources/audio';
-import { Images } from './resources/images';
-import { Embeddings } from './resources/embeddings';
-import { Models } from './resources/models';
-import { Balance } from './resources/balance';
+import { APIError, APIConnectionError, APIConnectionTimeoutError } from './error.js';
+import { Stream } from './streaming.js';
+import { RequestOptions } from './types.js';
+import { Chat } from './resources/chat.js';
+import { Audio } from './resources/audio.js';
+import { Images } from './resources/images.js';
+import { Embeddings } from './resources/embeddings.js';
+import { Models } from './resources/models.js';
+import { Balance } from './resources/balance.js';
 
 export interface ClientOptions {
   /** Defaults to process.env['LUNOS_API_KEY'] */

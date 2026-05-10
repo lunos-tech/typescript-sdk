@@ -1,6 +1,6 @@
-import type { Lunos } from '../client';
-import type { ChatCompletionCreateParams, ChatCompletion, ChatCompletionChunk, RequestOptions } from '../types';
-import { Stream } from '../streaming';
+import type { Lunos } from '../client.js';
+import type { ChatCompletionCreateParams, ChatCompletion, ChatCompletionChunk, RequestOptions } from '../types.js';
+import { Stream } from '../streaming.js';
 
 export class Completions {
   private client: Lunos;

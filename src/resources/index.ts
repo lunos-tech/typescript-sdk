@@ -1,6 +1,6 @@
-export { Chat, Completions } from './chat';
-export { Audio } from './audio';
-export { Images } from './images';
-export { Embeddings } from './embeddings';
-export { Models } from './models';
-export { Balance } from './balance';
+export { Chat, Completions } from './chat.js';
+export { Audio } from './audio.js';
+export { Images } from './images.js';
+export { Embeddings } from './embeddings.js';
+export { Models } from './models.js';
+export { Balance } from './balance.js';

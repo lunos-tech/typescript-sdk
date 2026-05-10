@@ -1,5 +1,5 @@
-import type { Lunos } from '../client';
-import type { ImageGenerationParams, ImageGenerationResponse, RequestOptions } from '../types';
+import type { Lunos } from '../client.js';
+import type { ImageGenerationParams, ImageGenerationResponse, RequestOptions } from '../types.js';
 
 export class Images {
   private client: Lunos;

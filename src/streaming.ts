@@ -1,4 +1,4 @@
-import { ChatCompletionChunk } from './types';
+import { ChatCompletionChunk } from './types.js';
 
 export class Stream<T = ChatCompletionChunk> implements AsyncIterable<T> {
   private response: Response;

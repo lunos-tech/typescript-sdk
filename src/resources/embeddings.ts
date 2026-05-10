@@ -1,5 +1,5 @@
-import type { Lunos } from '../client';
-import type { EmbeddingCreateParams, EmbeddingResponse, RequestOptions } from '../types';
+import type { Lunos } from '../client.js';
+import type { EmbeddingCreateParams, EmbeddingResponse, RequestOptions } from '../types.js';
 
 export class Embeddings {
   private client: Lunos;

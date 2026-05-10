@@ -35,6 +35,10 @@
     "image-generation"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunos-tech/typescript-sdk"
+  },
   "publishConfig": {
     "access": "public"
   },

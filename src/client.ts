@@ -13,6 +13,8 @@ export interface ClientOptions {
   apiKey?: string;
   /** Defaults to https://api.lunos.tech */
   baseURL?: string;
+  /** App identifier for analytics (sent as X-App-ID header) */
+  appId?: string;
   /** Timeout in ms. Default 60000 (1 minute) */
   timeout?: number;
   /** Max retries on failure. Default 2 */
@@ -29,6 +31,7 @@ export class Lunos {
   timeout: number;
   maxRetries: number;
   defaultHeaders: Record<string, string>;
+  appId?: string;
 
   chat: Chat;
   audio: Audio;
@@ -52,6 +55,7 @@ export class Lunos {
     this.timeout = opts.timeout ?? 60_000;
     this.maxRetries = opts.maxRetries ?? 2;
     this.defaultHeaders = opts.defaultHeaders ?? {};
+    this.appId = opts.appId;
     this._fetch = opts.fetch ?? globalThis.fetch;
 
     this.chat = new Chat(this);
@@ -70,6 +74,7 @@ export class Lunos {
     const headers: Record<string, string> = {
       'Authorization': `Bearer ${this.apiKey}`,
       'Content-Type': 'application/json',
+      ...(this.appId ? { 'X-App-ID': this.appId } : {}),
       ...this.defaultHeaders,
       ...opts?.headers,
     };
@@ -149,6 +154,7 @@ export class Lunos {
     const headers: Record<string, string> = {
       'Authorization': `Bearer ${this.apiKey}`,
       'Content-Type': 'application/json',
+      ...(this.appId ? { 'X-App-ID': this.appId } : {}),
       ...this.defaultHeaders,
       ...opts?.headers,
     };

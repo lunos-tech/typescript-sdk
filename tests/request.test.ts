@@ -51,6 +51,22 @@ describe('HTTP Requests', () => {
         headers: expect.objectContaining({ 'X-H': 'b' }),
       }));
     });
+
+    it('sends X-App-ID header when appId is set', async () => {
+      const fn = mockFetch(200);
+      const c = new Lunos({ apiKey: 'sk-test', fetch: fn, appId: 'my-app' });
+      await c.request('GET', '/test');
+      expect(fn).toHaveBeenCalledWith(expect.any(String), expect.objectContaining({
+        headers: expect.objectContaining({ 'X-App-ID': 'my-app' }),
+      }));
+    });
+
+    it('does not send X-App-ID header when appId is not set', async () => {
+      const fn = mockFetch(200);
+      await client(fn).request('GET', '/test');
+      const headers = (fn as any).mock.calls[0][1].headers;
+      expect(headers['X-App-ID']).toBeUndefined();
+    });
   });
 
   describe('body', () => {

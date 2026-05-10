@@ -68,4 +68,14 @@ describe('Lunos Client', () => {
     expect(client.models).toBeDefined();
     expect(client.balance).toBeDefined();
   });
+
+  it('stores appId when provided', () => {
+    const client = new Lunos({ apiKey: 'sk-test', appId: 'my-app-v1' });
+    expect(client.appId).toBe('my-app-v1');
+  });
+
+  it('appId is undefined when not provided', () => {
+    const client = new Lunos({ apiKey: 'sk-test' });
+    expect(client.appId).toBeUndefined();
+  });
 });

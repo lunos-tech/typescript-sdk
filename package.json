@@ -1,6 +1,7 @@
 {
   "name": "@lunos/sdk",
   "version": "1.0.1",
+  "type": "module",
   "description": "TypeScript SDK for the Lunos AI API gateway",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
